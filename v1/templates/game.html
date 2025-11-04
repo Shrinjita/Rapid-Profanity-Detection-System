@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Defender - Hindi Profanity Detection System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Space Defender</h1>
+            <p class="subtitle">Real-time Multiplayer with Voice Moderation</p>
+        </header>
+
+        <div class="main-content">
+            <div class="game-section">
+                <div class="game-header">
+                    <div class="game-info">
+                        <span id="player-name">Player: <strong>Anonymous</strong></span>
+                        <span id="player-score">Score: <strong>0</strong></span>
+                    </div>
+                    <div class="warning-display">
+                        <span id="warning-count">Warnings: <strong class="warning-value">0/3</strong></span>
+                    </div>
+                </div>
+                <canvas id="gameCanvas" width="800" height="600"></canvas>
+                <div class="game-controls">
+                    <button id="start-game" class="btn btn-primary">Start Game</button>
+                    <div class="control-info">
+                        <span>Controls: Arrow Keys to Move, Space to Shoot</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-panel">
+                <div class="panel-section">
+                    <h3>🎮 Team Players</h3>
+                    <div id="player-list" class="player-list"></div>
+                </div>
+
+                <div class="panel-section">
+                    <h3>💬 Voice & Chat</h3>
+                    <div class="voice-controls">
+                        <button id="voice-btn" class="btn btn-voice">
+                            <span class="voice-icon">🎤</span>
+                            <span id="voice-status">Start Voice Chat</span>
+                        </button>
+                        <div id="voice-indicator" class="voice-indicator"></div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <input type="text" id="text-input" placeholder="Type message (for testing)..." />
+                        <button id="send-text" class="btn btn-small">Send</button>
+                    </div>
+
+                    <div id="chat-messages" class="chat-messages"></div>
+                </div>
+
+                <div class="panel-section info-panel">
+                    <h3>🛡️ Profanity Filter Info</h3>
+                    <div class="filter-stats">
+                        <p><strong>Status:</strong> <span class="status-active">Active</span></p>
+                        <p><strong>Language:</strong> Hindi (hi-IN)</p>
+                        <p><strong>Detection:</strong> Real-time</p>
+                        <p><strong>System:</strong> 3-Strike Warning</p>
+                    </div>
+                    <div class="warning-legend">
+                        <div class="legend-item">
+                            <span class="legend-color warning-1"></span>
+                            <span>Warning 1 - Yellow Alert</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color warning-2"></span>
+                            <span>Warning 2 - Orange Alert</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color warning-3"></span>
+                            <span>Warning 3 - Red Alert (Block)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="join-modal" class="modal">
+        <div class="modal-content">
+            <h2>Join Space Defender</h2>
+            <p>Enter your name to join the multiplayer game</p>
+            <input type="text" id="username-input" placeholder="Enter your name..." maxlength="20" />
+            <button id="join-btn" class="btn btn-primary">Join Game</button>
+        </div>
+    </div>
+
+    <div id="warning-alert" class="alert-modal">
+        <div class="alert-content">
+            <div class="alert-icon">⚠️</div>
+            <h3 id="alert-title">Profanity Detected!</h3>
+            <p id="alert-message">Warning message here</p>
+            <button id="close-alert" class="btn btn-small">OK</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
